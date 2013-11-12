@@ -7,9 +7,5 @@
     <parameters>
         <parameter key="prediction_io.factory.class">PredictionIO\PredictionIOClient</parameter>
     </parameters>
-
-    <services>
-        <service id="prediction_io.client.factory" class="%prediction_io.factory.class%" />
-    </services>
     
 </container>
