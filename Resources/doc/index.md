@@ -43,7 +43,7 @@ $loader->registerNamespaces(array(
 
 ### Step 3) Register new bundle
 
-Place new line into AppKernel:
+Put new line into AppKernel:
 
 ``` php
 <?php
@@ -53,7 +53,7 @@ public function registerBundles()
 {
     $bundles = array(
         // ...
-        new Clarity\ImagesBundle\ClarityPredictionIOBundle(),
+        new Clarity\PredictionIOBundle\ClarityPredictionIOBundle(),
     );
     // ...
 }
@@ -66,7 +66,6 @@ public function registerBundles()
 For using client from [official PHP-SDK](https://github.com/PredictionIO/PredictionIO-PHP-SDK) as service in symfony you are just need add configuration:
 
 ``` yml
-<?php
 # app/config/config.yml
 
 # ...
@@ -85,12 +84,16 @@ After that you are able to call the client instance through container:
 // ...
     public function someMethod()
     {
-        $client = $this->container->get('prediction_io.default_client'); // instance of PredictionIO\PredictionIOClient
+        $client = $this->container->get('prediction_io.default_client'); 
+        // $client instance of PredictionIO\PredictionIOClient
     }
 // ...
 ```
 
 Your client has name `..default_client` because in official SDK you are creating your client through factory method. So our implementation for symfony allows to create multiple clients:
+
+``` yml
+# app/config/config.yml
 
 # ...
 prediction_io:
@@ -115,7 +118,8 @@ After that you are able to use all of them:
     {
         $firstClient = $this->container->get('prediction_io.first_app_client');
         $secondClient = $this->container->get('prediction_io.second_app_client');
-        $thirdClient = $this->container->get('prediction_io.third_app_client'); // instances of PredictionIO\PredictionIOClient
+        $thirdClient = $this->container->get('prediction_io.third_app_client'); 
+        // $*Client instances of PredictionIO\PredictionIOClient
     }
 // ...
 ```
