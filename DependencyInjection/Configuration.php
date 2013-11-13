@@ -22,7 +22,7 @@ class Configuration implements ConfigurationInterface
 
         $rootNode
             ->beforeNormalization()
-                ->ifTrue(function ($v) { return is_array($v) && array_key_exists('app_key', $v) && array_key_exists('app_url', $v); })
+                ->ifTrue(function ($v) { return is_array($v) && array_key_exists('app_key', $v) && array_key_exists('api_url', $v); })
                 ->then(function ($v) {
                     // we should put app_key & app_url as default client
                     foreach ($v as $key => $value) {
