@@ -37,7 +37,7 @@ class Configuration implements ConfigurationInterface
             ->prototype('array')
                 ->children()
                     ->scalarNode('app_key')->isRequired()->end()
-                    ->scalarNode('app_url')->isRequired()->end()
+                    ->scalarNode('api_url')->defaultValue('http://localhost:8000')->end()
                 ->end()
             ->end()
         ;

@@ -28,7 +28,7 @@ class ClientCompilerPass implements CompilerPassInterface
             $container
                 ->setDefinition('prediction_io.' . $name . '_client', new Definition(
                     $container->getParameter('prediction_io.factory.class'), array(
-                        array('appkey' => $parameters['app_key'], 'appurl' => $parameters['app_url'])
+                        array('appkey' => $parameters['app_key'], 'apiurl' => $parameters['api_url'])
                     )
                 ))
                 ->setFactoryService('prediction_io.client_factory')
